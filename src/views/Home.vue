@@ -100,62 +100,8 @@ body {
 
 <style scoped>
 
+@import '~@/assets/css/animacoes.css'; /* indica que o import parte da pasta /src */
 
-/* efeito fade */
-
-.fade-enter-from {   
-  opacity: 0;
-}
-
-.fade-enter-active {
-  transition: opacity 1s;
-}
-
-.fade-enter-to {
-  opacity: 1;
-}
-
-.fade-leave-from {
-  opacity: 1;
-}
-
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* efeito slide */
-
-.slide-enter-from { 
-  opacity: 0;
-  transform: translateX(-150px);
-}
-
-.slide-enter-active {
-  transition: all 1s;
-}
-
-.slide-enter-to {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-.slide-leave-from {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-.slide-leave-active {
-  transition: all 1s;
-}
-
-.slide-leave-to {
-  opacity: 0;
-  transform: translateX(150px);
-}
 
 .pokedex {
   padding: 20px;
