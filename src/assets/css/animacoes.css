@@ -58,3 +58,53 @@
 .zoom-leave-to {
     transform: scale(0);
 }
+
+
+/* flip , usando transform 
+
+.flip-enter-from {
+    transform: rotateY(-80deg);
+}
+
+.flip-enter-active {
+    transition: transform 2s;
+}
+
+.flip-enter-to {
+    transform: rotateY(0deg);
+}
+
+.flip-leave-from {
+    transform: rotateY(0deg);
+}
+
+.flip-leave-active {
+    transition: transform 2s;
+}
+
+.flip-leave-to {
+    transform: rotateY(80deg);
+}
+*/
+
+/* flip , usando animation */
+
+.flip-enter-active {
+    animation: flip 2s;
+}
+
+.flip-leave-active {
+    animation: flip 2s reverse;
+}
+
+@keyframes flip {
+
+    from {
+        transform: rotateY(-80deg); 
+    }
+    to {
+        transform: rotateY(0deg); 
+    }
+
+
+}
