@@ -10,12 +10,8 @@
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
               <transition
-                enter-from-class="entrada-estado-inicial"
-                enter-active-class="transicao"
-                enter-to-class="entrada-estado-final"
-                leave-from-class="saida-estado-inicial"
-                leave-active-class="transicao"
-                leave-to-class="saida-estado-final"
+                enter-active-class="animate__bounceIn"
+                leave-active-class="animate__bounceOut"
               >
               <!--<transition name="pulo" :duration="{ enter: 2000, leave: 1000 }">-->
               <!--<transition name="pulo" :duration="500">-->
