@@ -36,7 +36,7 @@
               <!--<transition name="pulo" :duration="500">-->
               <!--<transition name="pulo" type="animation">-->
               <!--<transition name="pulo" type="transition">-->
-                <img src="@/assets/imgs/pokemons/001.png" v-if="exibir">
+                <img :src="require(`@/assets/imgs/pokemons/${pokemon.imagem}`)" v-if="exibir">
               </transition>
 
               <div class="evolucoes">
@@ -95,7 +95,7 @@
               v-for="p in pokemons"
               :key="p.id"
               :class="`cartao-pokemon bg-${p.tipo}`" 
-              @click="exibir = !exibir"
+              @click="analisarPokemon(p)"
             >
               <h1>{{ p.id }} {{ p.nome }}</h1>
               <span>{{ p.tipo }}</span>
@@ -120,6 +120,7 @@ export default {
   data: () => ({
     exibir: false,
     exibirEvolucoes: false,
+    pokemon: {},
     pokemons: [
       { id: 1, nome: 'Bulbasaur', tipo: 'grama', imagem: '001.png', evolucoes: [2,3] },
       { id: 2, nome: 'Ivysaur', tipo: 'grama', imagem: '002.png', evolucoes: [3] },
@@ -141,6 +142,13 @@ export default {
       { id: 18, nome: 'Pidgeot', tipo: 'normal', imagem: '018.png', evolucoes: [] }
     ]
   }),
+  methods: {
+    analisarPokemon(p) {
+      this.pokemon = p;
+
+      this.exibir = !this.exibir;
+    }
+  }
 }
 </script>
 
