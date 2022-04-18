@@ -144,8 +144,13 @@ export default {
   }),
   methods: {
     analisarPokemon(p) {
+      
+      if((this.pokemon.id != p.id) && this.exibir) {
+        setTimeout(() => {
+          this.analisarPokemon(p);
+        }, 1000);
+      }
       this.pokemon = p;
-
       this.exibir = !this.exibir;
     }
   }
