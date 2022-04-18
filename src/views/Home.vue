@@ -10,6 +10,13 @@
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
               <transition
+                @after-enter="exibirEvolucoes = true"
+                @before-leave="exibirEvolucoes = false"
+
+                enter-active-class="animate__bounceIn"
+                leave-active-class="animate__bounceOut"
+              >
+              <!--<transition
                 @before-enter="antesDaEntrada"
                 @enter="duranteEntrada"
                 @after-enter="aposEntrada"
@@ -24,7 +31,7 @@
 
                 enter-active-class="animate__bounceIn"
                 leave-active-class="animate__bounceOut"
-              >
+              >-->
               <!--<transition name="pulo" :duration="{ enter: 2000, leave: 1000 }">-->
               <!--<transition name="pulo" :duration="500">-->
               <!--<transition name="pulo" type="animation">-->
@@ -34,10 +41,10 @@
 
               <div class="evolucoes">
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/003.png" v-if="exibir">
+                  <img src="@/assets/imgs/pokemons/003.png" v-if="exibirEvolucoes">
                 </transition>
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/002.png" v-if="exibir">
+                  <img src="@/assets/imgs/pokemons/002.png" v-if="exibirEvolucoes">
                 </transition>
               </div>
             </div>
@@ -106,42 +113,9 @@
 export default {
   name: 'Home',
   data: () => ({
-    exibir: false
+    exibir: false,
+    exibirEvolucoes: false
   }),
-  methods: {
-    antesDaEntrada(el) {
-      console.log('Antes da entrada', el);
-    },
-    //duranteEntrada(el, done) {
-    duranteEntrada(el) {
-      console.log('Durante a entrada', el);
-     // done(); //indica a conclusão da transição(entrada)
-    },
-    aposEntrada(el) {
-      console.log('Apos a Entrada', el);
-    },
-    quandoEntradaCancelada(el) {
-      console.log('Quando a entrada é cancelada', el);
-    },
-
-    antesDaSaida(el) {
-      console.log('Antes da saida', el);
-    },
-
-    //duranteSaida(el, done) {
-    duranteSaida(el) {
-      console.log('Durante a saida', el);
-      //done(); //indica a conclusão da transição(saida)
-    },
-    aposSaida(el) {
-      console.log('Apos a saida', el);
-    },
-    quandoSaidaCancelada(el) {
-      console.log('Quando a saida é cancelada', el);
-    },
-
-
-  }
 }
 </script>
 
