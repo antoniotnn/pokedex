@@ -14,7 +14,13 @@
                     </tr>
                 </tbody>
             </table>
-            <input type="text" class="form-control" placeholder="Adicionar habilidade">
+            <input 
+                type="text"
+                class="form-control" 
+                placeholder="Adicionar habilidade"
+                v-model="habilidade"
+                @keyup.enter="adicionarHabilidade"
+            >
         </div>
     </div>
 </template>
@@ -30,6 +36,15 @@ export default {
    name: 'Habilidades',
    props: {
        pokemon: Object
+   },
+   data: () => ({
+      habilidade: ''
+   }),
+   methods: {
+       adicionarHabilidade() {
+           this.$emit('adicionarHabilidade', this.habilidade);
+           this.habilidade = '';
+       }
    }
 }
 </script>

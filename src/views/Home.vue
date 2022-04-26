@@ -79,7 +79,7 @@
 
           <div class="detalhes">
             <!-- exibe dados de acordo com o menu de navegação -->
-            <router-view v-slot="{ Component }" :pokemon="pokemon">
+            <router-view v-slot="{ Component }" :pokemon="pokemon" @adicionarHabilidade="adicionarHabilidade">
               <transition
                 enter-active-class="animate__bounceIn"
               >
@@ -185,6 +185,12 @@ export default {
       //se a ação for de ocultar o Pokémon
       if(!this.exibir && !mudaPokemonAnalisado) {
         this.pokemon = {};
+      }
+    },
+    adicionarHabilidade(habilidade) {
+      console.log('Estamos no componente pai', habilidade);
+      if(this.pokemon.habilidades) {
+        this.pokemon.habilidades.push(habilidade);
       }
     }
   }
