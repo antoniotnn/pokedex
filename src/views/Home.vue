@@ -169,14 +169,23 @@ export default {
   methods: {
     analisarPokemon(p) {
       
+      let mudaPokemonAnalisado = false;
+
       if((this.pokemon.id != p.id) && this.exibir) {
         setTimeout(() => {
           this.analisarPokemon(p);
         }, 1000);
+
+        mudaPokemonAnalisado = true;
       }
       this.pokemon = p;
       this.exibir = !this.exibir;
       this.exibirEvolucoes = !this.exibirEvolucoes;
+
+      //se a ação for de ocultar o Pokémon
+      if(!this.exibir && !mudaPokemonAnalisado) {
+        this.pokemon = {};
+      }
     }
   }
 }
