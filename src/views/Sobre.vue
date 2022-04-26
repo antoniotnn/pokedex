@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{ pokemon }}
         <p>Identificador: {{ pokemon.id }}</p>
         <p>Nome: {{ pokemon.nome }}</p>
         <p>Tipo: {{ pokemon.tipo }}</p>
