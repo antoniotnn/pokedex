@@ -90,12 +90,12 @@
             "tipo": "agua", 
             "imagem": "007.png", 
             "evolucoes": [8,9],
-            "habilidades": ["Ataque fúria", "Esquivar"],
+            "habilidades": ["Jato de água", "Mergulho", "Cabeçada"],
             "status": {
-                "forca": 30,
-                "agilidade": 40,
-                "ataque": 20,
-                "defesa": 25
+                "forca": 5,
+                "agilidade": 15,
+                "ataque": 10,
+                "defesa": 8
             }
         },
         { 

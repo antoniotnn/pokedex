@@ -79,7 +79,7 @@
 
           <div class="detalhes">
             <!-- exibe dados de acordo com o menu de navegação -->
-            <router-view v-slot="{ Component }">
+            <router-view v-slot="{ Component }" :pokemon="pokemon">
               <transition
                 enter-active-class="animate__bounceIn"
               >
