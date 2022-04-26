@@ -79,7 +79,12 @@
 
           <div class="detalhes">
             <!-- exibe dados de acordo com o menu de navegação -->
-            <router-view v-slot="{ Component }" :pokemon="pokemon" @adicionarHabilidade="adicionarHabilidade">
+            <router-view 
+              v-slot="{ Component }" 
+              :pokemon="pokemon" 
+              @adicionarHabilidade="adicionarHabilidade"
+              @removerHabilidade="removerHabilidade"
+            >
               <transition
                 enter-active-class="animate__bounceIn"
               >
@@ -191,6 +196,12 @@ export default {
       console.log('Estamos no componente pai', habilidade);
       if(this.pokemon.habilidades) {
         this.pokemon.habilidades.push(habilidade);
+      }
+    },
+    removerHabilidade(indice) {
+      if(this.pokemon.habilidades[indice]) {
+        console.log('remover o indice', indice);
+        this.pokemon.habilidades.splice(indice, 1);
       }
     }
   }
