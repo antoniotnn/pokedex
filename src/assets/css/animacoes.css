@@ -252,9 +252,14 @@
 
 .lista-leave-active {
     transition: all 1s;
+    position: absolute;
 }
 
 .lista-leave-to {
     opacity: 0;
     transform: translateX(150px);
+}
+
+.lista-move {
+    transition: 1s;
 }
