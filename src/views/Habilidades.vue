@@ -7,7 +7,7 @@
             <table class="table text-white">
                 <tbody>
                     <transition-group name="lista">
-                        <tr v-for="(h, indice) in pokemon.habilidades" :key="indice">
+                        <tr v-for="(h, indice) in pokemon.habilidades" :key="h"><!-- aqui o :key= antes tinha o valor "indice", porém ao animar grupos de elementos o javascript se perde na remoção de elementos e aninmação fica indiondizente com a realidade, então setamos a key como a habilidade, para apos a reorganizacao de elementos no array, ele conseguir remover o elemento certo, usando a descricao da habilidade que é exclusiva, como indice-->
                             <td>{{ h }}</td>
                             <td class="d-flex justify-content-end">
                                 <button 
