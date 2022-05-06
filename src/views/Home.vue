@@ -114,6 +114,7 @@
               <option value="1">Id crescente</option>
               <option value="2">Id decrescrente</option>
               <option value="3">De A - Z</option>
+              <option value="4">De Z - A (localeCompare)</option>
             </select>
           </div>
         
@@ -203,7 +204,6 @@ export default {
       }
 
       if (valorNovo == 3) { // ordenação alfabética de A - Z
-        //console.log(this.pokemons);
         this.pokemons.sort((proximo, atual) => {
           
           if(atual.nome < proximo.nome) {
@@ -215,6 +215,21 @@ export default {
           }
 
           return 0;
+        });
+      }
+
+      if (valorNovo == 4) { //ordenação alfabética de Z - A (localeCompare) comparacao de strings respeitando o locale 
+        this.pokemons.sort((proximo, atual) => {
+          
+          //let resultado1 = atual.nome.localeCompare(proximo.nome); // -1 indica que a string de referencia vem antes da string do parmetro
+          //let resultado2 = proximo.nome.localeCompare(atual.nome); // 1 indica que a string de referencia vem depois da string do parametro
+          // retorn 0 se os valores forem iguais
+          // console.log('atual e o proximo', resultado1);
+          // console.log('proximo e o atual', resultado2);
+
+          //ordenacao descrescente
+          return atual.nome.localeCompare(proximo.nome); //assim pega o locale do browser ou pode passar como segundo parametro (proximo.nome, 'pt-BR');
+
         });
       }
     }
