@@ -263,3 +263,9 @@
 .lista-move {
     transition: 1s;
 }
+
+/* transition-group para o filtro animacao */
+
+.ordenacao-move {
+    transition: all 2s;
+}
