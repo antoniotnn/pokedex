@@ -119,7 +119,19 @@
           </div>
         
           <div class="col">
-            <input type="text" class="form-control" placeholder="Pesquisar pokémon">
+            <!-- <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Pesquisar Pokémon na tecla enter"
+              v-model="nomePokemon2"
+              @keyup.enter="filtrarPokemonsPorNome"
+            > -->
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Pesquisar Pokémon watch"
+              v-model="nomePokemon"
+            >
           </div>
         </div>
 
@@ -165,9 +177,20 @@ export default {
     exibirEvolucoes: false,
     pokemon: {},
     pokemons: [],
-    ordenacao: ''
+    ordenacao: '',
+    nomePokemon: '',
+    //nomePokemon2: ''
   }),
   watch: {
+    nomePokemon(valorNovo) {
+      fetch(`http://localhost:3000/pokemons?nome_like=${valorNovo}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.pokemons = data;
+      })
+    },
     ordenacao(valorNovo) {
       //console.log(valorNovo);
       //console.log(this.pokemons);
@@ -277,7 +300,16 @@ export default {
         console.log('remover o indice', indice);
         this.pokemon.habilidades.splice(indice, 1);
       }
-    }
+    },
+    // filtrarPokemonsPorNome(){
+    //   fetch(`http://localhost:3000/pokemons?nome_like=${this.nomePokemon2}`)
+    //   .then(response => {
+    //     return response.json();
+    //   })
+    //   .then(data => {
+    //     this.pokemons = data;
+    //   })
+    // }
   }
 }
 </script>
